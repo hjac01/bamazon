@@ -14,3 +14,9 @@ SELECT * FROM products;
 
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
 VALUES ("1", "apples", "produce", "1", "5");
+
+INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
+VALUES ("2","bread", "bakery", "4", "3");
+
+INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
+VALUES ("3", "pepperoni", "deli", "6", "10");
