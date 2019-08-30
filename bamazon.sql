@@ -10,5 +10,7 @@ CREATE TABLE products(
     stock_quantity INT NOT NULL
 ); 
 
+SELECT * FROM products; 
+
 INSERT INTO products (item_id, product_name, department_name, price, stock_quantity)
-VALUES ("1, apples, produce, $1, 5");
+VALUES ("1", "apples", "produce", "1", "5");
