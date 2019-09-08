@@ -52,12 +52,32 @@ function initiate(){
        
         var itemID = answer.itemID;
         var itemQuantity = answer.itemQuantity;
-        completePurchase(itemID, itemQuantity);
+        checkQuantity(itemID, itemQuantity);
     })
       
     }  
 
+    function checkQuantity(id, qty) {
+        connection.query(
+            "select * from products where item_id = ?",
+            [id],
+            function(err,res) {
+                if(err)
+                console.log("error");
+                var currentQuantity =res[0].stock_quantity;
+                if (qty<=currentQuantity) {
+                    completePurchase(id, qty);
+                }else {
+                    console.log("Insufficent Quantity");
+                    displayProducts();
+                }
+
+            }
+        )
+    }
+
     function completePurchase(id, qty){
+        // checkQuantity(id, qty);
         connection.query(
             "update products set stock_quantity = stock_quantity - ? where item_id = ?",
             [qty,id],
